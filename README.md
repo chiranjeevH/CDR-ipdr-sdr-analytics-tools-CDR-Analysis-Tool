@@ -3,9 +3,13 @@
 # IPDR Python Project
 
 ## Overview
+This Python project is designed to process IPDR (Internet Protocol Detail Record) data, commonly used for network traffic analysis. The project offers two UI options:
 
-This Python project is designed to process IPDR (Internet Protocol Detail Record) data, which is commonly used for network traffic analysis. The project aims to read IPDR data from a CSV file or multiple CSV files within a ZIP archive, perform data processing and analysis, and store the results in a Microsoft SQL Server database using pyodbc.
+Single CSV Search: This option allows users to search using a single CSV file containing IPDR records.
 
+Bulk Search (ZIP): This option enables users to perform bulk searches by providing a ZIP archive containing multiple CSV files with IPDR records.
+
+The project reads IPDR data from CSV files, performs data processing and analysis, and stores the results in a Microsoft SQL Server database using pyodbc.
 ## Features
 
 - **Data Reading**: The project utilizes the `csv` library to read IPDR data from a CSV file. Additionally, it can handle ZIP files containing multiple CSV files for batch processing.
