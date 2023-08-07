@@ -1,0 +1,7 @@
+python program to take zip file 
+extract it
+then open excel and upload the 
+data of excel to database
+then open in power bi
+
+add case id to 1st column

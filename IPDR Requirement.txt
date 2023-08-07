@@ -1,0 +1,7 @@
+execute near browse button
+
+add cases and view table in ui
+
+full screen UI
+
+IDPR 
