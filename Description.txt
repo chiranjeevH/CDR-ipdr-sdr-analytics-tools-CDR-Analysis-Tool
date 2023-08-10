@@ -1,7 +1,26 @@
-python program to take zip file 
-extract it
-then open excel and upload the 
-data of excel to database
-then open in power bi
+The objective of this project is to create an automated data pipeline that takes a zip file containing Excel files, extracts the data, uploads it to a database, adds a unique Case ID to the data, and then visualizes the data in Power BI.
 
-add case id to 1st column
+Workflow Steps:
+
+Zip File Extraction:
+The program will start by accepting a zip file as input. It will then extract the contents of the zip file, which should consist of one or more Excel files containing relevant data.
+
+Excel Data Extraction:
+The program will read the extracted Excel files and extract the data from them. It will likely use a Python library like openpyxl or pandas to read the Excel data.
+
+Database Upload:
+Once the data is extracted from the Excel files, it will be uploaded to a database. This could involve connecting to a database using a library like sqlite3 or SQLAlchemy, creating a table to store the data, and then inserting the data into the table.
+
+Adding Case ID:
+A unique Case ID will be generated for each row of data in the extracted Excel files. This Case ID will serve as a primary key when inserting the data into the database, ensuring data integrity.
+
+Power BI Visualization:
+After the data is successfully uploaded to the database, a connection will be established between the Power BI tool and the database. This will allow Power BI to fetch the data and create visualizations, reports, and dashboards based on the dataset. The visualizations could include charts, graphs, tables, and more, depending on the nature of the data.
+
+Benefits:
+
+Efficiency: Automation eliminates the need for manual data extraction, transformation, and loading, saving time and reducing errors.
+Data Integrity: The unique Case ID ensures that each record is uniquely identified, maintaining data integrity in the database.
+Data Visualization: Power BI enables effective data visualization, aiding in insights and decision-making.
+Scalability: The pipeline can be easily adapted to handle larger datasets and additional sources of data.
+Reusability: The code can be reused for similar projects or extended for more complex data pipelines.
