@@ -1,4 +1,4 @@
-# CDR-ipdr-sdr-analytics-tools-CDR-Analysis-Tool
+# NetworkFlow Master: A Python Solution for Bulk IPDR Processing and SQL Storage
 
 # IPDR Python Project
 
