@@ -1,50 +1,44 @@
-# NetworkFlow Master: A Python Solution for Bulk IPDR Processing and SQL Storage
+# DataFlow Master: A Python Solution for Bulk Data Processing and SQL Storage
 
-# IPDR Python Project
+## Project Overview
+This Python project is designed to process data from CSV files, making it suitable for a wide range of applications beyond just network traffic analysis. The project offers two UI options:
 
-## Overview
-This Python project is designed to process IPDR (Internet Protocol Detail Record) data, commonly used for network traffic analysis. The project offers two UI options:
+Single CSV Search: Allows users to search using a single CSV file containing records of interest.
 
-Single CSV Search: This option allows users to search using a single CSV file containing IPDR records.
+Bulk Search (ZIP): Enables users to perform bulk searches by providing a ZIP archive containing multiple CSV files with records.
 
-Bulk Search (ZIP): This option enables users to perform bulk searches by providing a ZIP archive containing multiple CSV files with IPDR records.
+The project reads data from CSV files, performs data processing and analysis, and stores the results in a Microsoft SQL Server database using pyodbc.
 
-The project reads IPDR data from CSV files, performs data processing and analysis, and stores the results in a Microsoft SQL Server database using pyodbc.
 ## Features
+Data Reading: Utilizes the csv library to read data from CSV files. Additionally, it can handle ZIP files containing multiple CSV files for batch processing.
 
-- **Data Reading**: The project utilizes the `csv` library to read IPDR data from a CSV file. Additionally, it can handle ZIP files containing multiple CSV files for batch processing.
+Data Processing: After reading the data, the project performs processing to clean, manipulate, and analyze the records. The specific steps, including data extraction and transformation, are carried out to structure the data appropriately.
 
-- **Data Processing**: After reading the IPDR data, the project performs data processing to clean, manipulate, and analyze the records. The specific processing steps, including data extraction and transformation, are carried out to structure the data appropriately.
-
-- **Database Integration**: The processed data is stored in a Microsoft SQL Server database using the `pyodbc` library. This ensures that the data is persistently saved and can be accessed for further analysis or reporting.
-
+Database Integration: The processed data is stored in a Microsoft SQL Server database using the pyodbc library. This ensures that the data is persistently saved and can be accessed for further analysis or reporting.
 
 ## Usage
+Prepare your data in CSV format. For multiple CSV files, you can compile them into a ZIP file.
 
-1. Prepare your IPDR data in CSV format. If you have multiple CSV files, you can put them in a ZIP file.
+Place the CSV or ZIP file in the project directory.
 
-2. Place the CSV or ZIP file in the project directory.
+Open the Python script (e.g., data_processing.py) and specify the file name and path in the appropriate variables.
 
-3. Open the Python script (e.g., `ipdr_processing.py`) and specify the file name and path in the appropriate variables.
+Configure the database connection details in the pyodbc.connect method within the Python script. Provide server name, database name, username, and password to establish a connection.
 
-4. Configure the database connection details in the `pyodbc.connect` method within the Python script. Provide the server name, database name, username, and password to establish a connection.
-
-5. Run the Python script to start processing the IPDR data.
+Run the Python script to start processing the data.
 
 ## Code Explanation
+The provided Python script processes data from CSV files within the ZIP archive, utilizing the os, zipfile, csv, and pyodbc libraries. Key parts of the code include:
 
-The provided Python script processes the IPDR data from CSV files within the ZIP archive. It uses the `os`, `zipfile`, `csv`, and `pyodbc` libraries to achieve this. The essential parts of the code are as follows:
+Walking through the project directory to find any ZIP files, extracting their contents to a temporary folder using the zipfile.ZipFile class.
 
-- The script walks through the project directory and finds any ZIP files. For each ZIP file found, it extracts the contents to a temporary folder using the `zipfile.ZipFile` class.
+Iterating through the CSV files within the temporary folder and reading each row of data with csv.reader.
 
-- The script then iterates through the CSV files within the temporary folder and uses the `csv.reader` to read each row of data.
+Organizing the data into a dictionary dict_data.
 
-- The IPDR data is processed and organized into a dictionary `dict_data`.
+Establishing a connection to the Microsoft SQL Server database with pyodbc.connect, using connection parameters according to your setup.
 
-- The `pyodbc.connect` method is used to establish a connection to the Microsoft SQL Server database. The connection parameters should be provided according to your setup.
-
-- The processed data is inserted into the SQL Server database using the `cursor.execute` method and committed using `conn.commit()`.
+Inserting the processed data into the SQL Server database with cursor.execute and committing the changes with conn.commit().
 
 ## Contribution
-
-Feel free to contribute to this project by opening issues or submitting pull requests. Your feedback and suggestions are valuable in improving the functionality and efficiency of the IPDR processing tool.
+Contributions to this project are welcome. Open issues or submit pull requests with your feedback and suggestions to enhance the functionality and efficiency of the data processing tool.
